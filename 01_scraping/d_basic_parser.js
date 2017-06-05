@@ -63,6 +63,7 @@ function fetchWebpage(url){
 var options = {
 	url: 'https://www.nyu.edu/about/leadership-university-administration/board-of-trustees.html',
 	headers: {
+		//to learn more about headers, check out: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
 		'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
 	}
 };

@@ -19,7 +19,9 @@ var request = require('request');
 
 //let's define a function that fetches our webpage
 function fetchWebpage(url){
+
 	console.log('fetching', url, '...');
+
 	//this is where we actually use the request package to load that webpage
 	request(url, function(error, response, body){
 		//which, once completed, gives us a possible error
@@ -37,6 +39,7 @@ function fetchWebpage(url){
 
 //here we declare the URL we want to fetch
 var myURL = 'http://yoo.ooo';
+//var myURL = 'https://newyork.craigslist.org/search/mis';
 
 //and then finally we actually call our function, with the URL above
 fetchWebpage(myURL);

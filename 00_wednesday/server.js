@@ -66,11 +66,26 @@ function fetchWebpage(){
 
     });
 
-    console.log(data_to_be_saved);
-
+    //now we give that data to the function that is going to write it to disk
+    writeToDisk(data_to_be_saved);
 
   });
 }
+
+
+function writeToDisk(data){
+  var writeable_data = JSON.stringify(data);
+
+  fs.writeFile('data/listings.json', writeable_data, function(){
+    console.log('successfully written to disk!');
+  });
+}
+
+
+
+
+
+
 
 
 

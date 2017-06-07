@@ -23,6 +23,7 @@ app.get('/', function(request, response, error){
 
 var request = require('request');
 var cheerio = require('cheerio');
+var fs = require('fs');
 
 function fetchWebpage(){
   //this is the url we want to request
@@ -42,18 +43,31 @@ function fetchWebpage(){
 
     //we start looking for titles and hoods
     var titles = [];
+    var url = [];
     var areas = [];
-    var ages = [];
+
+    var data_to_be_saved = {
+      'all_listings': []
+    };
 
     $('.result-title').each(function(index, element){
         titles[index] = $(element).text();
+        url[index] = $(element).attr('href');
+        areas[index] = url[index].slice('1', '4');
+
+        var listing = {
+          'name': titles[index],
+          'link': url[index],
+          'hood': areas[index]
+        };
+
+        data_to_be_saved.all_listings.push(listing);
+
+
     });
 
-    $('.result-hood').each(function(index, element){
-        areas[index] = $(element).text();
-    });
+    console.log(data_to_be_saved);
 
-    console.log(areas);
 
   });
 }

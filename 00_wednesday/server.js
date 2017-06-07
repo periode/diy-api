@@ -26,8 +26,11 @@ app.get('/all_listings', function(request, response, error){
     fetched_data = JSON.parse(data);
 
 
-    if(request.query.boro == null){
+    //if the user wants the whole thing
+    if(request.query.boro == null && request.query.gender == null){
+
       response.send(fetched_data);
+
     }else{
       var result = {
         'listings' : []

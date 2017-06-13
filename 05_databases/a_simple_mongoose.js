@@ -58,7 +58,7 @@ app.get('/save-emma', function(req, res, err){
 	});
 
 	// once that we have our Model, we can call the save() function within it to save it automatically to our opened database	
-	emma.save(function(error, new_song){
+	emma.save(function(error, emma){
 		if(error)
 			throw error;
 		else{

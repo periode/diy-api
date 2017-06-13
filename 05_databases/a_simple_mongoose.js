@@ -15,7 +15,7 @@ app.listen(port, function(){
 
 // ---
 // this is the part where we connect to the database
-mongoose.connect('mongodb://localhost:27017/db');
+mongoose.connect('mongodb://localhost/mylibrary');
 
 // we save our connection into a variable called `my_database`
 var my_database = mongoose.connection;

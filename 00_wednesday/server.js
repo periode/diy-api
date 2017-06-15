@@ -25,13 +25,13 @@ app.get('/', function(request, response, error){
 });
 
 //here we register another route, which will deliver different content than the '/' endpoint above on line 19
-app.get('/give_me_all_listings', function(request, response, error){
+app.get('/get-all-listings', function(request, response, error){
   var fetched_data;
-  
+
   //we first need to read our file, which is located in the 'data' folder, and called 'listings.json'
   fs.readFile('data/listings.json', function(error, data){
     console.log('successfully read file');
-    
+
     //once we've read (loaded) the file, we need to parse it as JSON
     fetched_data = JSON.parse(data);
 
@@ -139,7 +139,7 @@ function fetchWebpage(){
           'link': url[index],
           'hood': areas[index]
         };
-        
+
         //then finally we add it to our object declared on line 124
         data_to_be_saved.all_listings.push(listing);
 

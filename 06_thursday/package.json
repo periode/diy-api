@@ -1,0 +1,25 @@
+{
+  "name": "diy-api",
+  "version": "1.0.0",
+  "description": "itp camp 2017",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierredepaz/diy-api.git"
+  },
+  "keywords": [
+    "lol"
+  ],
+  "author": "pierre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pierredepaz/diy-api/issues"
+  },
+  "homepage": "https://github.com/pierredepaz/diy-api#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

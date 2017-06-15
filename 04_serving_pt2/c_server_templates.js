@@ -1,6 +1,6 @@
 var Express = require('express');
 var app = Express();
-var pug = require('pug')
+var pug = require('pug');
 
 var port = 2046;
 
@@ -33,11 +33,8 @@ app.get('/custom', function(request, response, err){
 	// in that case, we're passing it a JSON object, which has two fields, 'name' and 'state', for the respective values "Pierre" and "happy"
 	var data = {
 		name: "Pierre",
-		state: "happy"
+		state: "sad"
 	};
 
-	
 	response.render('custom', data);
 });
-
-

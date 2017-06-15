@@ -15,7 +15,8 @@ app.listen(port, function(){
 
 // ---
 // this is the part where we connect to the database
-mongoose.connect('mongodb://localhost/mylibrary');
+var my_database_ip = "localhost";
+mongoose.connect('mongodb://'+my_database_ip+'/mylibrary');
 
 // we save our connection into a variable called `my_database`
 var my_database = mongoose.connection;
@@ -57,13 +58,33 @@ app.get('/save-emma', function(req, res, err){
 		synopsis: 'What happens if you give too much credibility to fiction'
 	});
 
-	// once that we have our Model, we can call the save() function within it to save it automatically to our opened database	
+	// once that we have our Model, we can call the save() function within it to save it automatically to our opened database
 	emma.save(function(error, emma){
 		if(error)
 			throw error;
 		else{
 			console.log('successfully saved emma bovary!');
 			res.send('successfully saved emma to mongoose!');
+		}
+	});
+});
+
+app.get('/save-1984', function(req, res, err){
+
+	// now, we can create new Schemas and save them in our database.
+	var winston = new Book({
+		title: '1984',
+		author: 'George Orwell',
+		synopsis: 'control via screens and fake friends and you will betray love at the end and die'
+	});
+
+	// once that we have our Model, we can call the save() function within it to save it automatically to our opened database
+	winston.save(function(error, winston){
+		if(error)
+			throw error;
+		else{
+			console.log('successfully saved winston smith!');
+			res.send('successfully saved winston to mongoose!');
 		}
 	});
 });
@@ -83,9 +104,9 @@ app.get('/get-all', function(request, response, err){
 			// NOTE: response.write() is similar to response.send() in that it writes something back to the client
 			// NOTE: but it is different in that you can call it multiple times, and that you need to call response.end() when you're done
 			response.write(all_books[i].toString()+'<br><br><hr>');
-			
+
 		}
-		
+
 		// once we've looped through all the entries and that we've written them to our response, we call end()
 		response.end();
 	});
